@@ -13,29 +13,31 @@ To address that gap, many RVI members have custom extensions for combined instru
 Standardizing combined instructions will benefit vendors with custom combined instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
 
 Common instruction combinations include, but _are not limited to_:
- * Load/store operations with additional addressing modes
- * Load/store operations operating on multiple input/output registers
- * Conditional branches with immediate operands
- * Macro-operations occurring in string operations (e.g., testing for NUL-octets in a register) and Unicode-processing
- * Bitfield insertion/extraction
- * Checksum-calculation operations for storage and networking
- * Conditional select
- * ...
+
+* Load/store operations with additional addressing modes
+* Load/store operations operating on multiple input/output registers
+* Conditional branches with immediate operands
+* Macro-operations occurring in string operations (e.g., testing for NUL-octets in a register) and Unicode-processing
+* Bitfield insertion/extraction
+* Checksum-calculation operations for storage and networking
+* Conditional select
+* ...
 
 == Objectives
 
 Objectives include:
- * Standardizing common combined instructions currently implemented as custom extensions by multiple vendors
- * Identifying additional gaps relative to competitive ISAs and new opportunities that will set RISC-V apart
- * Identifying target markets, and for each defining:
-   * Target workloads, algorithms, and/or real-world applications
-   * Priority metrics (_e.g._, code size, performance)
-   * Specific inclusion criteria based on use-cases, frequency-of-occurrence, predicted code-size reduction, and/or predicted effect on performance.
- * Define and develop an evaluation methodology for proposed instructions, possibly including:
-   * Static binary analysis
-   * Compiler prototyping
-   * Runtime analysis
- * Coordinating the development of ISA extensions that meet the inclusion criteria through one or more standard or fast-track task groups.
+
+* Standardizing common combined instructions currently implemented as custom extensions by multiple vendors
+* Identifying additional gaps relative to competitive ISAs and new opportunities that will set RISC-V apart
+* Identifying target markets, and for each defining:
+** Target workloads, algorithms, and/or real-world applications
+** Priority metrics (_e.g._, code size, performance)
+** Specific inclusion criteria based on use-cases, frequency-of-occurrence, predicted code-size reduction, and/or predicted effect on performance.
+* Define and develop an evaluation methodology for proposed instructions, possibly including:
+** Static binary analysis
+** Compiler prototyping
+** Runtime analysis
+* Coordinating the development of ISA extensions that meet the inclusion criteria through one or more standard or fast-track task groups.
 
 == Collaborations
 
