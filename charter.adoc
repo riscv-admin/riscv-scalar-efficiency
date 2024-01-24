@@ -44,7 +44,7 @@ Objectives include:
 To fulfill its objectives, the Combined Instruction SIG will engage with:
 
 * Unpriv IC
-* Software HC 
+* Software HC
 
 == Leadership
 
