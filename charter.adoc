@@ -1,0 +1,49 @@
+= Combined Instruction SIG Charter
+
+== Introduction
+
+The Combined Instruction SIG aims to define new instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together.
+The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
+THe SIG will identify target markets, and, for each one, develop metrics to evaluate new instructions by balancing tradeoffs between code size, performance, and implementation costs.
+
+== Background
+
+RISC-V lacks common combined instructions present in competitive ISAs, and as such lags the competition on code size in many workloads.
+To address that gap, many RVI members have custom extensions for combined instructions (_e.g._, additional load/store addressing modes).
+Standardizing combined instructions will benefit vendors with custom combined instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
+
+Common instruction combinations include, but _are not limited to_:
+ * Load/store operations with additional addressing modes
+ * Load/store operations operating on multiple input/output registers
+ * Conditional branches with immediate operands
+ * Macro-operations occurring in string operations (e.g., testing for NUL-octets in a register) and Unicode-processing
+ * Bitfield insertion/extraction
+ * Checksum-calculation operations for storage and networking
+ * Conditional select
+ * ...
+
+== Objectives
+
+Objectives include:
+ * Standardizing common combined instructions currently implemented as custom extensions by multiple vendors
+ * Identifying additional gaps relative to competitive ISAs and new opportunities that will set RISC-V apart
+ * Identifying target markets, and for each defining:
+   * Target workloads, algorithms, and/or real-world applications
+   * Priority metrics (_e.g._, code size, performance)
+   * Specific inclusion criteria based on use-cases, frequency-of-occurrence, predicted code-size reduction, and/or predicted effect on performance.
+ * Define and develop an evaluation methodology for proposed instructions, possibly including:
+   * Static binary analysis
+   * Compiler prototyping
+   * Runtime analysis
+ * Coordinating the development of ISA extensions that meet the inclusion criteria through one or more standard or fast-track task groups.
+
+== Collaborations
+
+To fulfill its objectives, the Combined Instruction SIG will engage with:
+
+* Unpriv IC
+* Software HC 
+
+== Leadership
+
+Acting chair: Derek Hower (Qualcomm)
