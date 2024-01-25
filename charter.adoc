@@ -1,4 +1,4 @@
-= Combined Instruction SIG Charter
+= Prelim Combined Instruction SIG Charter
 
 == Introduction
 
@@ -12,7 +12,7 @@ RISC-V lacks common combined instructions present in competitive ISAs, and as su
 To address that gap, many RVI members have custom extensions for combined instructions (_e.g._, additional load/store addressing modes).
 Standardizing combined instructions will benefit vendors with custom combined instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
 
-Common instruction combinations include, but _are not limited to_:
+Example instruction combinations include, but _are not limited to_:
 
 * Load/store operations with additional addressing modes
 * Load/store operations operating on multiple input/output registers
@@ -20,7 +20,9 @@ Common instruction combinations include, but _are not limited to_:
 * Macro-operations occurring in string operations (e.g., testing for NUL-octets in a register) and Unicode-processing
 * Bitfield insertion/extraction
 * Checksum-calculation operations for storage and networking
-* Conditional select
+* Conditional select, mov, aluop
+* Branches with large offsets
+* Large immediate loads
 * ...
 
 == Objectives
@@ -39,12 +41,12 @@ Objectives include:
 ** Runtime analysis
 * Coordinating the development of ISA extensions that meet the inclusion criteria through one or more standard or fast-track task groups.
 
-== Collaborations
+== Governance
 
-To fulfill its objectives, the Combined Instruction SIG will engage with:
+To fulfill its objectives, the Combined Instruction SIG will report to:
 
 * Unpriv IC
-* Software HC
+* Apps and Tools HC (dotted line)
 
 == Leadership
 
