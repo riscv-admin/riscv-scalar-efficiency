@@ -1,10 +1,10 @@
-= Prelim Combined Instruction SIG Charter
+= Prelim Scalar Efficiency SIG Charter
 
 == Introduction
 
-The Combined Instruction SIG aims to define new instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together.
+The Scalar Efficiency SIG aims to define new instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together.
 The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
-THe SIG will identify target markets, and, for each one, develop metrics to evaluate new instructions by balancing tradeoffs between code size, performance, and implementation costs.
+THe SIG will identify target device types, and, for each one, develop metrics to evaluate new instructions by balancing tradeoffs between code size, performance, and implementation costs.
 
 == Background
 
@@ -45,8 +45,8 @@ Objectives include:
 
 To fulfill its objectives, the Combined Instruction SIG will report to:
 
-* Unpriv IC
-* Apps and Tools HC (dotted line)
+* Apps and Tools HC
+* Unpriv IC (dotted line)
 
 == Leadership
 
