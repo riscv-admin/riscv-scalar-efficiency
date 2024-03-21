@@ -1,0 +1,39 @@
+= March 20, 2024
+
+== Attendees
+
+ * David Weaver (Akeana)
+ * Mark Himelstein (RVI)
+ * Derek Hower (Qualcomm)
+ * Allen Baum (Esperanto)
+ * Greg Favor (Ventana)
+ * James Ball (Qualcomm)
+ * Philipp Tomsich (VRULL)
+ * Daniel Bone (Imagination)
+ * Al Martin (Akeana)
+ * Ana Pazos (Qualcomm)
+ * Christian Herber (NXP)
+
+== Artifacts
+
+ * https://zoom.us/rec/play/O7w0NE0eajQqbCCp2zBOinr7kGNYI9msrRv3uB5evPt1aSyuc_jLraJdWHxI2IrjtA6nhy3cKbrnETLL.qvsv99RTzEwx3r-t[Zoom Recording]
+ * https://lists.riscv.org/g/sig-scalar-efficiency/files/Presentations/Scalar%20Efficency%20SIG%20Kickoff%20-%2020240321.pdf[Slides] - We reached slide #4. Will continue at #5 next meeting.
+ * https://github.com/riscv-admin/riscv-scalar-efficiency/commit/66b0179e911afb0b3a66d582bf0ec688faa934cb[Changes to charter]
+
+== Topics
+
+Administrative::
+
+ * One hour meetings will be held on *even* weeks at 8:00 AM PT. (Apps & Tools HC slot)
+ * Links to group tools provided; see https://lists.riscv.org/g/sig-scalar-efficiency/files/Presentations/Scalar%20Efficency%20SIG%20Kickoff%20-%2020240321.pdf[slides].
+
+Charter::
+
+ * Debated whether or not to restrict scope to instructions "targetable by a compiler".
+ ** Phillip pointed out that an instruction meant for libc (_e.g._, instruction for working with strings) would be excluded, even though the general consensus is that should be in scope.
+ ** No final decision on wording; Derek will talk to Krste, who originally suggested the restriction.
+ * Started discussion of relative merit of code size/instruction count vs. performance for inclusion criteria, and how to measure performance
+ ** No conclusions; will likely need long deliberation.
+ ** Greg suggested defining several baseline microarchitectures (e.g., low, high).
+ ** Derek pointed out that relative importance of metrics is going to be profile/market-dependent. 
+ * Minor wordsmithing; see charter https://github.com/riscv-admin/riscv-scalar-efficiency/commit/66b0179e911afb0b3a66d582bf0ec688faa934cb[diff].
