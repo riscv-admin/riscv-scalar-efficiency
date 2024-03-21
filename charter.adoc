@@ -1,10 +1,16 @@
-= Prelim Scalar Efficiency SIG Charter
+= Preliminary Scalar Efficiency SIG Charter
 
 == Introduction
 
-The Scalar Efficiency SIG aims to define new instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together.
+The Scalar Efficiency SIG aims to explore new unprivileged instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together. To be considered, new instructions must be:
+
+ * Scalar (i.e., not vector instructions)
+ * Targetable by a compiler
+
 The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
-THe SIG will identify target device types, and, for each one, develop metrics to evaluate new instructions by balancing tradeoffs between code size, performance, and implementation costs.
+
+The SIG will identify target device types, and, for each one, develop metrics to evaluate new instructions by balancing tradeoffs between code size, performance, and implementation costs.
+Based on results, we expect to spin off multiple Task Groups to define new extensions.
 
 == Background
 
