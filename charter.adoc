@@ -4,8 +4,9 @@
 
 The Scalar Efficiency SIG aims to explore new unprivileged instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together. To be considered, new instructions must be:
 
- * Scalar (i.e., not vector instructions)
- * Targetable by a compiler
+ * Scalar (i.e., not SIMD instructions)
+ ** Includes floating point instructions. When considered, will coordinate with the FP SIG.
+// * Targetable by a compiler  TODO: Get Krste's opinion based on feedback that this requirement would be too narrowing.
 
 The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
 
@@ -14,9 +15,9 @@ Based on results, we expect to spin off multiple Task Groups to define new exten
 
 == Background
 
-RISC-V lacks common combined instructions present in competitive ISAs, and as such lags the competition on code size in many workloads.
+RISC-V lacks common instructions present in competitive ISAs, and as such lags the competition on code size in many workloads.
 To address that gap, many RVI members have custom extensions for combined instructions (_e.g._, additional load/store addressing modes).
-Standardizing combined instructions will benefit vendors with custom combined instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
+Standardizing combined instructions will benefit vendors with custom instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
 
 Example instruction combinations include, but _are not limited to_:
 
@@ -28,14 +29,14 @@ Example instruction combinations include, but _are not limited to_:
 * Checksum-calculation operations for storage and networking
 * Conditional select, mov, aluop
 * Branches with large offsets
-* Large immediate loads
+* Instructions to generate large (e.g., 64-bit) immediates
 * ...
 
 == Objectives
 
 Objectives include:
 
-* Standardizing common combined instructions currently implemented as custom extensions by multiple vendors
+* Standardizing common instructions currently implemented as custom extensions by multiple vendors
 * Identifying additional gaps relative to competitive ISAs and new opportunities that will set RISC-V apart
 * Identifying target markets, and for each defining:
 ** Target workloads, algorithms, and/or real-world applications
@@ -46,6 +47,7 @@ Objectives include:
 ** Compiler prototyping
 ** Runtime analysis
 * Coordinating the development of ISA extensions that meet the inclusion criteria through one or more standard or fast-track task groups.
+* Archiving reasons when studied instructions are not advanced to a TG for standardization.
 
 == Governance
 
