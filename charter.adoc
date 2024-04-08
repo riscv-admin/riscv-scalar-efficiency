@@ -1,12 +1,24 @@
 = Preliminary Scalar Efficiency SIG Charter
 
-== Introduction
+The Scalar Efficiency SIG aims to explore new unprivileged instructions that broadly reduce code size and/or improve performance.
 
-The Scalar Efficiency SIG aims to explore new unprivileged instructions that reduce code size and/or improve performance by combining the semantics of multiple existing instructions that frequently occur together. To be considered, new instructions must be:
+== Scope
 
- * Scalar (i.e., not SIMD instructions)
- ** Includes floating point instructions. When considered, will coordinate with the FP SIG.
- * Targetable by a compiler code generator or builtin function
+The SIG will consider new unprivileged instructions that are:
+
+ . Scalar (i.e., not SIMD instructions)
+ . Either:
+ ** Targetable by a compiler code generator, or
+ ** Beneficial to hand-optimized libraries from more than one application domain.
+
+[NOTE]
+'Scalar' includes both integer and floating point instructions. Floating point instructions originating in the Scalar Efficiency SIG are expected to be generic, _e.g._, floating point load/store instructions with new addressing modes. The Floating Point SIG will still own traditional floating point topics like number formats.
+
+[NOTE]
+Any function in a generic library like _libc_ would be considered applicable to multiple application domains. For any other domain-specific library, an instruction that is not targetable by code generation would need to be beneficial to at least one other domain. For example, an instruction that helps compression libraries would also need to be beneficial to a separate domain like media codecs.
+
+[NOTE]
+An OS kernel is considered an application domain.
 
 The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
 
@@ -15,8 +27,8 @@ Based on results, we expect to spin off multiple Task Groups to define new exten
 
 == Background
 
-RISC-V lacks common instructions present in competitive ISAs, and as such lags the competition on code size in many workloads even with compressed 16-bit encodings.
-To address that gap, many RVI members have custom extensions for combined instructions (_e.g._, additional load/store addressing modes).
+RISC-V lags the competition on code size in many workloads, even when compiled with compressed 16-bit encodings.
+To address that gap, many RVI members have custom extensions for more efficient instructions (_e.g._, additional load/store addressing modes).
 Standardizing combined instructions will benefit vendors with custom instructions by enabling consolidated toolchain support, and will improve key metrics for the ecosystem as a whole.
 
 Example instruction combinations include, but _are not limited to_:
