@@ -1,0 +1,33 @@
+= Minutes for April 4, 2024
+
+== Attendees
+
+ * Derek Hower (Qualcomm)
+ * Allen Baum (Esperanto)
+ * Greg Favor (Ventana)
+ * Philipp Tomsich (VRULL)
+ * Daniel Bone (Imagination)
+ * Al Martin (Akeana)
+ * Ana Pazos (Qualcomm)
+ * Christian Herber (NXP)
+ * Rich Fulher (Andes)
+
+
+== Artifacts
+
+ * https://github.com/riscv-admin/riscv-scalar-efficiency/commit/1d660d19fb3e4dcdd02419b01763f96d8cfe6619[Changes to charter]
+ * https://lists.riscv.org/g/sig-scalar-efficiency/files/Presentations/Scalar%20Efficency%20SIG%20Kickoff%20-%2020240321.pdf[Slides] - We started at slide #5
+
+== Topics
+
+Charter::
+
+ * Discussed SIG scope, specifically restriction to instructions "targetable by a compiler code generator or builtin function"
+ ** Concern that 'builtin' would be too restrictive, _e.g._, preventing consideration of instructions that target compression libraries.
+ ** *Reached agreement that SIG will target inline assembly instructions if those instructions are beneficial to more than one domain.*
+ *** Instructions beneficial to a single domain are better handled by domain-specific SIG or TG. The Scalar Efficiency SIG can help facilitate that if needed.
+ * Brief discussion on any overlap with Zilsd (fast-track RV32-only load double)
+ ** Derek concerned that there may be overlap with load/store pair.
+ ** Christian pointed out there is room for both; Zilsd instructions will be restricted to sequentual destination registers, re-use RV64 encodings, and will have the benefit of a 16-bit representation. A more general load/store pair would still be useful in RV32/RV64.
+ ** *Consensus that there is no issue with overlap.*
+ * Derek presented template for TG timelines; see slides.
