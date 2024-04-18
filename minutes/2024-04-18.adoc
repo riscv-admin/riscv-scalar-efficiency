@@ -1,0 +1,56 @@
+= Minutes for April 18, 2024
+
+== Attendees
+
+ * James Ball (Qualcomm)
+ * Derek Hower (Qualcomm)
+ * Ana Pazos (Qualcomm)
+ * Allen Baum (Esperanto)
+ * Al Matrin (Akeana)
+ * Bing Yu (Andes)
+ * Christian Herber (NXP)
+ * Greg Favor (Ventana)
+ * Philipp Tomsich (VRULL)
+ * Rich Fuhler (Andes)
+ * Ved (Rivos)
+ * Victor Lu (Individual)
+
+== Artifacts
+
+  * https://github.com/riscv-admin/riscv-scalar-efficiency/blob/main/agendas/2024-04-18.pdf[Slides]
+  * https://docs.google.com/spreadsheets/d/1dQYU7QQ-SnIoXp9vVvVjS6Jz9vGWhwmsdbEOF3JBwUg[Instruction spreadsheet]
+
+== Topics
+
+Charter::
+
+ * Agreed to adopt "targetable by a compiler code generator or builtin/instrinsic" for scope
+ ** Derek will update charter, along with note defining builtin/intrinsic
+
+Processor classes::
+
+ * Agreed on four relevant processor classes:
+ ** Microcontroller
+ ** Low-end in-order application processor (_e.g._, IoT)
+ ** Mid-range out-of-order application processor (_e.g._, mobile)
+ ** High-end out-of-order application processor (_e.g._, server)
+ * All application processors expected to share instructions. Differentiation is for evaluation purposes.
+ * Derek will create more complete descriptions of each class
+
+Workloads::
+
+ * Additional workloads were suggested:
+ ** Linux Kernel (apps)
+ ** Router software (apps)
+ ** Crypto
+ ** Vendor-proprietary (vendor may share results, without sharing workload)
+
+Metrics::
+
+ * Agreed that metrics will be applied per instruction
+
+Instruction database::
+
+ * Went over fields. Christian suggested a field indicating if there is a known implementation already.
+ * Derek encouraged members to contribute
+

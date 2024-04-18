@@ -10,7 +10,7 @@
  * Al Martin (Akeana)
  * Ana Pazos (Qualcomm)
  * Christian Herber (NXP)
- * Rich Fulher (Andes)
+ * Rich Fuhler (Andes)
 
 
 == Artifacts
