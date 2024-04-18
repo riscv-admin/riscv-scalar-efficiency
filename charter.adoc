@@ -9,16 +9,10 @@ The SIG will consider new unprivileged instructions that are:
  . Scalar (i.e., not SIMD instructions)
  . Either:
  ** Targetable by a compiler code generator, or
- ** Beneficial to hand-optimized libraries from more than one application domain.
+ ** Part of a compiler builtin/intrinsic
 
 [NOTE]
-'Scalar' includes both integer and floating point instructions. Floating point instructions originating in the Scalar Efficiency SIG are expected to be generic, _e.g._, floating point load/store instructions with new addressing modes. The Floating Point SIG will still own traditional floating point topics like number formats.
-
-[NOTE]
-Any function in a generic library like _libc_ would be considered applicable to multiple application domains. For any other domain-specific library, an instruction that is not targetable by code generation would need to be beneficial to at least one other domain. For example, an instruction that helps compression libraries would also need to be beneficial to a separate domain like media codecs.
-
-[NOTE]
-An OS kernel is considered an application domain.
+Compiler builtins cover a wide range of generally useful functions. For example, GCC provides builtins for https://gcc.gnu.org/onlinedocs/gcc/Integer-Overflow-Builtins.html[integer overflow], https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html[most of libc/libm], and https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html[bit operations]. LLVM supports the same https://clang.llvm.org/docs/LanguageExtensions.html#builtin-functions[plus more]. A builtin is also referred to as an https://en.wikipedia.org/wiki/Intrinsic_function[intrinsic], though not all instrinsics use the 'builtin' prefix in their name. The https://llvm.org/docs/LangRef.html#intrinsic-functions[LLVM documentation] has a complete list of compiler-supported intrinsics.
 
 The SIG will consider instructions spanning multiple processor classes, from limited in-order designs up to wide out-of-order designs.
 
