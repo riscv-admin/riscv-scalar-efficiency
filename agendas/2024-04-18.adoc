@@ -1,0 +1,96 @@
+= Scalar Efficiency SIG Meeting: April 18, 2024
+Derek Hower, Qualcomm
+:title-page:
+:pdf-theme: slides-theme.yml
+:pdf-fontsdir: docs-resources/fonts
+:imagesdir: docs-resources/images
+:pdf-page-layout: landscape
+
+<<<
+== Agenda
+
+ * Update on charter
+ * Discuss processor types / metrics / workloads
+ * Introduction to instruction database
+
+<<<
+== Charter
+
+  * Krste considers instructions expected to be *handwritten and applicable to multiple domains* out of scope.
+  * Derek's recommendation:
+  ** Revert to *targetable by a compiler code generator or builtin function*
+  ** If we discuss any instructions that do not fit that scope, we can assist in setting up a TG under a different SIG/HC/IC.
+
+<<<
+== Processor types
+
+[%autowidth]
+|===
+| Microcontroller | App
+
+a|
+  . In-order implementation
+  . (Relatively) low frequency
+  . First-order constraints (metrics):
+  ** Static code size
+  ** Area
+  . Second-order constraints (metrics):
+  ** Dynamic code size
+  ** Performance
+  ** Power
+  . Suggested workloads:
+  ** EEMBC
+  ** Zephyr OS (for code size)?
+
+a|
+
+  . Up to wide out-of-order implementation
+  . High frequency
+  . First-order constraints (metrics):
+  ** Performance
+  ** Power
+  . Second-order constraints (metrics);
+  ** Dynamic code size
+  ** Area
+  . Third-order constraints (metrics):
+  ** Static code size
+  . Suggested workloads:
+  ** SPEC CPU 2017
+  ** Android Open Source Project (AOSP) -- For code size
+  ** Speedometer (browser)
+
+|===
+
+<<<
+== Metrics
+
+Breadth::
+
+  * Workload
+  ** Individual benchmark?
+  *** What's an "important" benchmark?
+  ** Average on a suite?
+  * Per-instruction or per-extension?
+
+Code Size::
+
+  * % reduction per codepoint (_e.g._, 1% / 0.1% SROS)?
+
+Performance::
+
+  * Need accepted performance model *or* real hardware (_e.g._ from vendor custom extension)
+  * 
+
+<<<
+== Instruction database
+
+  * Instruction database has been started:
+  a. https://docs.google.com/spreadsheets/d/1dQYU7QQ-SnIoXp9vVvVjS6Jz9vGWhwmsdbEOF3JBwUg/edit#gid=0[Review fields]
+  * Looking for contributions
+
+<<<
+== Next steps
+
+  * Submit charter + call for Chair/Vice-chair
+  * Collect instructions, start dedup + categorizing
+  * Discuss methodology

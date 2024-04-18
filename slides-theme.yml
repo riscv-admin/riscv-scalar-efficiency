@@ -1,0 +1,73 @@
+extends: default
+font:
+  catalog:
+    merge: true
+#        sans-serif: GEM_FONTS_DIR/mplus1p-regular-fallback.ttf 
+    #Petrona
+    body:
+      normal: Petrona-Light.ttf
+      bold: Petrona-Medium.ttf
+      italic: Petrona-LightItalic.ttf
+      bold_italic: Petrona-MediumItalic.ttf
+      header_thin: Petrona-Thin.ttf
+    #Montserrat
+    headings:
+      normal: Montserrat-Regular.ttf
+      italic: Montserrat-Italic.ttf
+      bold: Montserrat-Medium.ttf
+      light: Montserrat-Light.ttf
+    code:
+      normal: cmunbtl.ttf
+      bold: cmunbtl.ttf
+      italic: cmunbto.ttf
+      bold_italic: cmunbto.ttf
+    # M+ 1mn supports ASCII and the circled numbers used for conums
+    M+ 1mn:
+      normal: mplus-1mn-regular.ttf
+      bold: mplus-1mn-bold.ttf
+      italic: mplus-1mn-light.ttf
+      bold_italic: mplus-1mn-medium.ttf
+    M+ 1p Fallback:
+      normal: mplus-1p-regular-fallback.ttf
+      bold: mplus-1p-regular-fallback.ttf
+      italic: mplus-1p-regular-fallback.ttf
+      bold_italic: mplus-1p-regular-fallback.ttf
+    Droid Fallback:
+      normal: droid-sans-fallback.ttf
+      italic: droid-sans-fallback.ttf
+      bold: droid-sans-fallback.ttf
+      bold_italic: droid-sans-fallback.ttf
+    # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
+    # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
+  fallbacks:
+    - M+ 1p Fallback
+    - Droid Fallback
+  svg:
+    fallback-font-family: M+ 1mn
+base:
+  font_size: 15
+heading:
+  font_color: 3e058e
+  h1-font-size: 30  
+  h2-font-size: 25    
+  h3-font-size: 20
+  h4-font-size: 15
+title-page:
+  background-color: #EAEAEA
+  logo:
+    align: center
+    top: 10%
+    image: image:docs-resources/images/risc-v_logo.png[pdfwidth=2.5in]
+  subtitle:
+    display: block
+  authors:
+    display: block
+    content:
+      name_only: "{author}"
+      with_email: "{author} <{email}>"
+      with_url: "{url}[{author}]"
+    font_size: $heading_h3_font_size
+code:
+  font-size: 15
+footer:
+  font-size: 12
