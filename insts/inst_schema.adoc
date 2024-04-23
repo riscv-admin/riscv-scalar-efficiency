@@ -1,0 +1,135 @@
+= Schema for instruction descriptions
+
+A list of candidate instructions for RISC-V Scalar Efficiency
+
+== Properties
+
+[cols="1,2,2"]
+|===
+| Name | Description | Attributes
+
+
+a| `mnemonic`
+
+| Proposed instruction mnemonic
+
+a|
+[horizontal]
+Type:: string
+Examples:: BNEI, J.FAR
+Required?:: false
+
+
+a| `categories`
+
+| List of category tags
+
+a|
+[horizontal]
+Type:: array
+Examples:: branch, large_imm
+Required?:: false
+
+
+a| `enc_size`
+
+| 
+
+a|
+[horizontal]
+Type:: integer
+Examples:: 16, 32, 64
+Required?:: false
+
+
+a| `base`
+
+| Base ISA (All, RV32, or RV64)
+
+a|
+[horizontal]
+Type:: string
+Required?:: false
+
+
+a| `class`
+
+| Intended processor class (Micro, App, or Any)
+
+a|
+[horizontal]
+Type:: string
+Required?:: false
+
+
+a| `donator`
+
+| RVI member donating/suggesting the instruction
+
+a|
+[horizontal]
+Type:: string
+Examples:: Qualcomm, NXP
+Required?:: false
+
+
+a| `implemented`
+
+| Whether or not the instruction has already been implemented in a custom extension
+
+a|
+[horizontal]
+Type:: boolean
+Required?:: false
+
+
+a| `description`
+
+| Functional description of the instruction
+
+a|
+[horizontal]
+Type:: string
+Required?:: false
+
+
+a| `srcs`
+
+| Number of source registers (including any implicit registers) read by the instruction
+
+a|
+[horizontal]
+Type:: integer
+Required?:: false
+
+
+a| `dsts`
+
+| Number of destination registers (including any implicit registers) written by the instruction
+
+a|
+[horizontal]
+Type:: integer
+Required?:: false
+
+
+a| `free_bits`
+
+| Number of non-fixed bits in the encoding. I.e., log2(# of codepoints used by instruction). For example, an R-type instruction has 3 5-bit variables fields (rd, rs1, rs2), and so has 3*5=15 free bits
+
+a|
+[horizontal]
+Type:: integer
+Required?:: false
+
+
+a| `notes`
+
+| Any extra notes
+
+a|
+[horizontal]
+Type:: string
+Required?:: false
+
+

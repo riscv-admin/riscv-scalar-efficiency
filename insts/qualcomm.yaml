@@ -1,0 +1,904 @@
+# yaml-language-server: $schema=inst_schema.json
+---
+- mnemonic: BEQI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 == simm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Close to XCVbi cv.beqimm https://github.com/openhwgroup/cv32e40p/blob/62bec66b36182215e18c9cf10f723567e23878e9/docs/source/instruction_set_extensions.rst#immediate-branching-operations
+- mnemonic: BNEI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 != simm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Close to XCVbi cv.bneqimm https://github.com/openhwgroup/cv32e40p/blob/62bec66b36182215e18c9cf10f723567e23878e9/docs/source/instruction_set_extensions.rst#immediate-branching-operations
+- mnemonic: BLTI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) < simm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: ''
+- mnemonic: BLTUI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 < uimm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: ''
+- mnemonic: BGEI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) >= simm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: ''
+- mnemonic: BGEUI
+  categories:
+  - branch
+  - branch_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 >= uimm5) pc += (simm12 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: ''
+- mnemonic: BEQZ.FAR
+  categories:
+  - branch
+  - branch_far
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 == 0) pc += (simm17 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Reach +- 128KB (32x)
+- mnemonic: BNEZ.FAR
+  categories:
+  - branch
+  - branch_far
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 != 0) pc += (simm17 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Reach +- 128KB (32x)
+- mnemonic: BLTZ.FAR
+  categories:
+  - branch
+  - branch_far
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) < 0) pc += (simm17 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Reach +- 128KB (32x)
+- mnemonic: BGEZ.FAR
+  categories:
+  - branch
+  - branch_far
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) >= 0) pc += (simm17 << 1)
+  srcs: 1
+  dsts: 0
+  free_bits: 22
+  notes: Reach +- 128KB (32x)
+- mnemonic: BEQ.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 == rs2) pc += (simm28 << 1)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: BNE.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 != rs2) pc += (simm28 << 1)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: BLT.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) < $signed(rs2)) pc += (simm28 << 1)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: BLTU.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 < rs2) pc += (simm28 << 11)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: BGE.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if ($signed(rs1) >= $signed(rs2)) pc += (simm28 << 1)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: BGEU.48
+  categories:
+  - branch
+  - branch_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: if (rs1 >= rs2) pc += (simm28 << 1)
+  srcs: 2
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 256MB
+- mnemonic: JAL.48
+  categories:
+  - jump
+  - jump_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: x1 = pc + 6; pc += (simm32 << 1)
+  srcs: 0
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 4GB
+- mnemonic: J.48
+  categories:
+  - jump
+  - jump_far
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: pc += (simm32 << 1)
+  srcs: 0
+  dsts: 0
+  free_bits: 38
+  notes: Reach +- 4GB
+- mnemonic: C.CMOVEQZ
+  categories:
+  - cond_exec
+  enc_size: 16
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd'' = (rd'' == 0) ? rs1'' : rd'''
+  srcs: 2
+  dsts: 1
+  free_bits: 6
+  notes: ''
+- mnemonic: CSELEQZ
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == 0) ? rs1 : rs2'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CSELNEZ
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd != 0) ? rs1 : rs2'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CSELLTZ
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) < 0) ? rs1 : rs2'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CSELGEZ
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) >= 0 ) ? rs1 : rs2'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CSELEQZI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == 0) ? rs1 : imm5'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVEQ
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == rs1) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVNE
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd != rs1) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLT
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) < $signed(rs1)) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLTU
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd < rs1) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGE
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) >= $signed(rs1)) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGEU
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd >= rs1) ? rs2 : rd'
+  srcs: 3
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVEQ.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == rs1) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVNE.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd != rs1) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLT.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) < $signed(rs1)) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLTU.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd < rs1) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGE.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) >= $signed(rs1)) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGEU.RI
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd >= rs1) ? imm5 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVEQ.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == imm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVNE.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd != imm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLT.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) < simm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLTU.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd < uimm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGE.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) >= simm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGEU.IR
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd >= uimm5) ? rs1 : rd'
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVEQ.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd == imm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVNE.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd != imm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLT.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) < simm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVLTU.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd < uimm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGE.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = ($signed(rd) >= simm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: CMOVGEU.II
+  categories:
+  - cond_exec
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: 'rd = (rd >= uimm5) ? imm5_2 : rd'
+  srcs: 1
+  dsts: 1
+  free_bits: 15
+  notes: ''
+- mnemonic: MPYADDI
+  categories:
+  - comb_arith
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd += rs1 * imm5
+  srcs: 2
+  dsts: 1
+  free_bits: 15
+  notes: Already in PackedSIMD extension
+- mnemonic: MVP0
+  categories:
+  - comb_arith
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: a0 = rs1; a1 = rs2
+  srcs: 2
+  dsts: 2
+  free_bits: 10
+  notes: Similar instruction in Zc*
+- mnemonic: MVP2
+  categories:
+  - comb_arith
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: a2 = rs1; a3 = rs2
+  srcs: 2
+  dsts: 2
+  free_bits: 10
+  notes: Similar instruction in Zc*
+- mnemonic: INSB
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd[width5+shamt5:shamt5] = rs1[width5-1:0]
+  srcs: 2
+  dsts: 1
+  free_bits: 20
+  notes: ''
+- mnemonic: INSBI
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd[width5+shamt5:shamt5] = imm5[width5-1:0]
+  srcs: 2
+  dsts: 1
+  free_bits: 20
+  notes: ''
+- mnemonic: EXTU
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd = rs1[width5+sham5t:shamt5]
+  srcs: 2
+  dsts: 1
+  free_bits: 20
+  notes: ''
+- mnemonic: EXTS
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd = sign_extend(rs1[width5+shamt5:shamt5))
+  srcs: 2
+  dsts: 1
+  free_bits: 20
+  notes: ''
+- mnemonic: CLO
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd = count_leading_ones(rs1)
+  srcs: 1
+  dsts: 1
+  free_bits: 10
+  notes: ''
+- mnemonic: CTO
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd = count_trailing_ones(rs1)
+  srcs: 1
+  dsts: 1
+  free_bits: 10
+  notes: ''
+- mnemonic: BREV32
+  categories:
+  - bit
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: rd = reverse_bit_order(rs1)
+  srcs: 1
+  dsts: 1
+  free_bits: 10
+  notes: Already in PackedSIMD extension
+- mnemonic: LI16
+  categories:
+  - large_imm
+  enc_size: 32
+  base: All
+  class: Any
+  donator: Qualcomm
+  implemented: false
+  description: "\"rd = ((n == 0) ? x0 : rd) | (imm16 << (n*16)"
+  srcs: 0
+  dsts: 1
+  free_bits: 1
+  notes: '64'
+- mnemonic: LI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = imm32
+  srcs: 0
+  dsts: 1
+  free_bits: 32
+  notes: ''
+- mnemonic: XORAI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rd ^ imm32
+  srcs: 1
+  dsts: 1
+  free_bits: 37
+  notes: ''
+- mnemonic: ORAI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rd | imm32
+  srcs: 1
+  dsts: 1
+  free_bits: 37
+  notes: ''
+- mnemonic: ADDAI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rd + imm32
+  srcs: 1
+  dsts: 1
+  free_bits: 37
+  notes: ''
+- mnemonic: ANDAI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rd & imm32
+  srcs: 1
+  dsts: 1
+  free_bits: 37
+  notes: ''
+- mnemonic: XORI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rs1 ^ imm26
+  srcs: 1
+  dsts: 1
+  free_bits: 36
+  notes: ''
+- mnemonic: ORI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rs1 | imm26
+  srcs: 1
+  dsts: 1
+  free_bits: 36
+  notes: ''
+- mnemonic: ADDI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rs1 + imm26
+  srcs: 1
+  dsts: 1
+  free_bits: 36
+  notes: ''
+- mnemonic: ANDI.48
+  categories:
+  - large_imm
+  enc_size: 48
+  base: All
+  class: Micro
+  donator: Qualcomm
+  implemented: false
+  description: rd = rs1 & imm26
+  srcs: 1
+  dsts: 1
+  free_bits: 36
+  notes: ''

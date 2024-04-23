@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/TODO",
+  "title": "Schema for instruction descriptions",
+  "description": "A list of candidate instructions for RISC-V Scalar Efficiency",
+
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "mnemonic": {
+        "type": "string",
+        "description": "Proposed instruction mnemonic",
+        "examples": ["BNEI", "J.FAR"]
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of category tags",
+        "examples": ["branch", "large_imm"]
+      },
+      "enc_size": {
+        "type": "integer",
+        "multipleOf": 16,
+        "minimum": 16,
+        "maximum": 64,
+        "examples": [16, 32, 64]
+      },
+      "base": {
+        "type": "string",
+        "enum": ["All", "RV32", "RV64"],
+        "description": "Base ISA (All, RV32, or RV64)"
+      },
+      "class": {
+        "type": "string",
+        "enum": ["Any", "Micro", "App"],
+        "description": "Intended processor class (Micro, App, or Any)"
+      },
+      "donator": {
+        "type": "string",
+        "description": "RVI member donating/suggesting the instruction",
+        "examples": ["Qualcomm", "NXP"]
+      },
+      "implemented": {
+        "type": "boolean",
+        "description": "Whether or not the instruction has already been implemented in a custom extension",
+        "default": false
+      },
+      "description": {
+        "type": "string",
+        "description": "Functional description of the instruction"
+      },
+      "srcs": {
+          "type": "integer",
+          "description": "Number of source registers (including any implicit registers) read by the instruction"
+      },
+      "dsts": {
+        "type": "integer",
+        "description": "Number of destination registers (including any implicit registers) written by the instruction"
+      },
+      "free_bits": {
+        "type": "integer",
+        "description": "Number of non-fixed bits in the encoding. I.e., log2(# of codepoints used by instruction). For example, an R-type instruction has 3 5-bit variables fields (rd, rs1, rs2), and so has 3*5=15 free bits"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Any extra notes"
+      }
+    },
+    "required_properties": [
+      "mnemonic",
+      "categories",
+      "enc_size",
+      "base",
+      "class",
+      "donator",
+      "description",
+      "srcs",
+      "dsts",
+      "free_bits"
+    ]
+  }
+}
