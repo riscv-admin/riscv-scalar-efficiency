@@ -10,8 +10,24 @@ The list of contributors to this specification is maintained in the link:contrib
 
 For guidelines on how to contribute, refer to the link:CONTRIBUTING.md[CONTRIBUTING] file.
 
-=== Cloning the Repository
+== Cloning the Repository
 
 ```shell
-git clone --recurse-submodules https://github.com/riscv-admin/riscv-combined-instructions.git
+git clone --recurse-submodules https://github.com/riscv-admin/riscv-scalar-efficiency.git
+```
+
+== Running tasks
+
+The `do` script manages tasks. It is a wrapper around https://github.com/ruby/rake[rake].
+
+Examples:
+
+```shell
+# show all known tasks
+./do --tasks
+```
+
+```shell
+# generate asciidoc table from instruction database
+./do inst:render:adoc
 ```

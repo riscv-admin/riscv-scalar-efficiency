@@ -1,0 +1,74 @@
+= Instruction database
+
+|===
+| mnemonic | categories | enc_size | base | class | donator | implemented | description | srcs | dsts | free_bits | notes
+
+| BEQI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if (rs1 == simm5) pc += (simm12 << 1) | 1 | 0 | 22 | Close to XCVbi cv.beqimm https://github.com/openhwgroup/cv32e40p/blob/62bec66b36182215e18c9cf10f723567e23878e9/docs/source/instruction_set_extensions.rst#immediate-branching-operations
+| BNEI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if (rs1 != simm5) pc += (simm12 << 1) | 1 | 0 | 22 | Close to XCVbi cv.bneqimm https://github.com/openhwgroup/cv32e40p/blob/62bec66b36182215e18c9cf10f723567e23878e9/docs/source/instruction_set_extensions.rst#immediate-branching-operations
+| BLTI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if ($signed(rs1) < simm5) pc += (simm12 << 1) | 1 | 0 | 22 | 
+| BLTUI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if (rs1 < uimm5) pc += (simm12 << 1) | 1 | 0 | 22 | 
+| BGEI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if ($signed(rs1) >= simm5) pc += (simm12 << 1) | 1 | 0 | 22 | 
+| BGEUI | ["branch", "branch_imm"] | 32 | All | Any | Qualcomm | false | if (rs1 >= uimm5) pc += (simm12 << 1) | 1 | 0 | 22 | 
+| BEQZ.FAR | ["branch", "branch_far"] | 32 | All | Any | Qualcomm | false | if (rs1 == 0) pc += (simm17 << 1) | 1 | 0 | 22 | Reach +- 128KB (32x)
+| BNEZ.FAR | ["branch", "branch_far"] | 32 | All | Any | Qualcomm | false | if (rs1 != 0) pc += (simm17 << 1) | 1 | 0 | 22 | Reach +- 128KB (32x)
+| BLTZ.FAR | ["branch", "branch_far"] | 32 | All | Any | Qualcomm | false | if ($signed(rs1) < 0) pc += (simm17 << 1) | 1 | 0 | 22 | Reach +- 128KB (32x)
+| BGEZ.FAR | ["branch", "branch_far"] | 32 | All | Any | Qualcomm | false | if ($signed(rs1) >= 0) pc += (simm17 << 1) | 1 | 0 | 22 | Reach +- 128KB (32x)
+| BEQ.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if (rs1 == rs2) pc += (simm28 << 1) | 2 | 0 | 38 | Reach +- 256MB
+| BNE.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if (rs1 != rs2) pc += (simm28 << 1) | 2 | 0 | 38 | Reach +- 256MB
+| BLT.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if ($signed(rs1) < $signed(rs2)) pc += (simm28 << 1) | 2 | 0 | 38 | Reach +- 256MB
+| BLTU.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if (rs1 < rs2) pc += (simm28 << 11) | 2 | 0 | 38 | Reach +- 256MB
+| BGE.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if ($signed(rs1) >= $signed(rs2)) pc += (simm28 << 1) | 2 | 0 | 38 | Reach +- 256MB
+| BGEU.48 | ["branch", "branch_far"] | 48 | All | Micro | Qualcomm | false | if (rs1 >= rs2) pc += (simm28 << 1) | 2 | 0 | 38 | Reach +- 256MB
+| JAL.48 | ["jump", "jump_far"] | 48 | All | Micro | Qualcomm | false | x1 = pc + 6; pc += (simm32 << 1) | 0 | 0 | 38 | Reach +- 4GB
+| J.48 | ["jump", "jump_far"] | 48 | All | Micro | Qualcomm | false | pc += (simm32 << 1) | 0 | 0 | 38 | Reach +- 4GB
+| C.CMOVEQZ | ["cond_exec"] | 16 | All | Any | Qualcomm | false | rd' = (rd' == 0) ? rs1' : rd' | 2 | 1 | 6 | 
+| CSELEQZ | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == 0) ? rs1 : rs2 | 3 | 1 | 15 | 
+| CSELNEZ | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd != 0) ? rs1 : rs2 | 3 | 1 | 15 | 
+| CSELLTZ | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) < 0) ? rs1 : rs2 | 3 | 1 | 15 | 
+| CSELGEZ | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) >= 0 ) ? rs1 : rs2 | 3 | 1 | 15 | 
+| CSELEQZI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == 0) ? rs1 : imm5 | 2 | 1 | 15 | 
+| CMOVEQ | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == rs1) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVNE | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd != rs1) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVLT | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) < $signed(rs1)) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVLTU | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd < rs1) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVGE | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) >= $signed(rs1)) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVGEU | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd >= rs1) ? rs2 : rd | 3 | 1 | 15 | 
+| CMOVEQ.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == rs1) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVNE.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd != rs1) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVLT.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) < $signed(rs1)) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVLTU.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd < rs1) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVGE.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) >= $signed(rs1)) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVGEU.RI | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd >= rs1) ? imm5 : rd | 2 | 1 | 15 | 
+| CMOVEQ.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == imm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVNE.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd != imm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVLT.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) < simm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVLTU.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd < uimm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVGE.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) >= simm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVGEU.IR | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd >= uimm5) ? rs1 : rd | 2 | 1 | 15 | 
+| CMOVEQ.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd == imm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| CMOVNE.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd != imm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| CMOVLT.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) < simm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| CMOVLTU.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd < uimm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| CMOVGE.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = ($signed(rd) >= simm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| CMOVGEU.II | ["cond_exec"] | 32 | All | Any | Qualcomm | false | rd = (rd >= uimm5) ? imm5_2 : rd | 1 | 1 | 15 | 
+| MPYADDI | ["comb_arith"] | 32 | All | Any | Qualcomm | false | rd += rs1 * imm5 | 2 | 1 | 15 | Already in PackedSIMD extension
+| MVP0 | ["comb_arith"] | 32 | All | Any | Qualcomm | false | a0 = rs1; a1 = rs2 | 2 | 2 | 10 | Similar instruction in Zc*
+| MVP2 | ["comb_arith"] | 32 | All | Any | Qualcomm | false | a2 = rs1; a3 = rs2 | 2 | 2 | 10 | Similar instruction in Zc*
+| INSB | ["bit"] | 32 | All | Any | Qualcomm | false | rd[width5+shamt5:shamt5] = rs1[width5-1:0] | 2 | 1 | 20 | 
+| INSBI | ["bit"] | 32 | All | Any | Qualcomm | false | rd[width5+shamt5:shamt5] = imm5[width5-1:0] | 2 | 1 | 20 | 
+| EXTU | ["bit"] | 32 | All | Any | Qualcomm | false | rd = rs1[width5+sham5t:shamt5] | 2 | 1 | 20 | 
+| EXTS | ["bit"] | 32 | All | Any | Qualcomm | false | rd = sign_extend(rs1[width5+shamt5:shamt5)) | 2 | 1 | 20 | 
+| CLO | ["bit"] | 32 | All | Any | Qualcomm | false | rd = count_leading_ones(rs1) | 1 | 1 | 10 | 
+| CTO | ["bit"] | 32 | All | Any | Qualcomm | false | rd = count_trailing_ones(rs1) | 1 | 1 | 10 | 
+| BREV32 | ["bit"] | 32 | All | Any | Qualcomm | false | rd = reverse_bit_order(rs1) | 1 | 1 | 10 | Already in PackedSIMD extension
+| LI16 | ["large_imm"] | 32 | All | Any | Qualcomm | false | "rd = ((n == 0) ? x0 : rd)  (imm16 << (n*16) | 0 | 1 | 1 | 64
+| LI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = imm32 | 0 | 1 | 32 | 
+| XORAI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rd ^ imm32 | 1 | 1 | 37 | 
+| ORAI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rd  imm32 | 1 | 1 | 37 | 
+| ADDAI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rd + imm32 | 1 | 1 | 37 | 
+| ANDAI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rd & imm32 | 1 | 1 | 37 | 
+| XORI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rs1 ^ imm26 | 1 | 1 | 36 | 
+| ORI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rs1  imm26 | 1 | 1 | 36 | 
+| ADDI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rs1 + imm26 | 1 | 1 | 36 | 
+| ANDI.48 | ["large_imm"] | 48 | All | Micro | Qualcomm | false | rd = rs1 & imm26 | 1 | 1 | 36 | 
+|===

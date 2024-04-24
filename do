@@ -27,4 +27,4 @@ if [ $? -eq 1 ]; then
 fi
 
 # pass everything to ruby
-bundle exec ruby "$ROOT"/bin/do.rb "$@"
+bundle exec ruby "$ROOT"/bin/do.rb -f "$ROOT"/bin/do.rake "$@"
