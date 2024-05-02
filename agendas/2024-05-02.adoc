@@ -27,7 +27,7 @@ Derek Hower, Qualcomm
 == Load/store pair
 
  * Recall: ARC authorized Zilsd (RV32 load/store double into sequential registers) fast-track extension
- * ARC has requested that flexible load/store pairs (independent dst regs), included in the SE SIG charter, be considered for consistency.
+ * Apps & Tools HC has requested that flexible load/store pairs (independent dst regs), included in the SE SIG charter, be considered for consistency and to reduce burden on toolchains.
  * Two proposals:
 
 |===
@@ -54,7 +54,7 @@ h| % SROS total | 0.0815% | 0.1353% | 1.0416%
 h| Implicit offset shift | 2*data size (aligned to pair) | data size (aligned to single) | 0
 h| Offset bits | 2 | 5 | 12
 h| Offset reach (doubleword) | 64 bytes | 256 bytes | 4096 bytes
-h| SPEC 2006, clang 16, -O3 static code size reduction | | 1.98% Avg +
+h| SPEC 2006, RVA23 clang 16, -O3 static code size reduction | | 1.98% Avg +
 5.51% Max |
 h| % Avg Reduction / % SROS | | 14.63 |
 |===
@@ -83,4 +83,3 @@ h| % Avg Reduction / % SROS | | 14.63 |
 == Processor classes
 
  * https://github.com/riscv-admin/riscv-scalar-efficiency/blob/main/work%20product/processor_classes.adoc[See Draft]
- 

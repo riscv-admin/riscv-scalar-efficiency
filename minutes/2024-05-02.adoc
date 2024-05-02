@@ -1,0 +1,41 @@
+= Minutes for April 18, 2024
+
+== Attendees
+
+ * Derek Hower (Qualcomm)
+ * Phillip Tomsich (VRULL)
+ * Ved Shanbhogue (Rivos)
+ * James Ball (Qualcomm)
+ * Al Martin (Akeana)
+ * Allen Baum (Esperanto)
+ * Ana Pazos (Qualcomm)
+ * Christian Herber (NXP)
+ * David Weaver (Akeana)
+ * Greg Favor (Ventana)
+ * Paul Sherman (Individual)
+ * Shashank Nemawarkar (Individual)
+
+== Artifacts
+
+ * https://github.com/riscv-admin/riscv-scalar-efficiency/blob/main/agendas/2024-05-02.pdf[slides]
+
+== Topics
+
+Process::
+
+ * Call for Chairs out, nominations due May 10, 2024
+
+Load/Store Pair::
+
+ * Apps & Tools HC requested we investigate feasibility of merging SE proposals for load/store pair with RV32 load double, currently a fast-track (Zilsd)
+ ** No conclusion reached in this meeting
+ * Compared two extant proposals:
+ ** Alibaba T-Head
+ ** Qualcomm
+ * AI: Derek will collect additional data on Qualcomm version
+ ** Breakdown in use of variants
+ ** Breakdown by workload
+ ** Verify data vs. C extension
+ * AI: Verify with Alibaba that there is no alignment constraint on their version
+ * AI: VRULL will provide data on Aliababa extension to SE mailing list
+ * Discussed exception/consistency semantics for load/store pair; see slides

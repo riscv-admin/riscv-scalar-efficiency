@@ -26,43 +26,44 @@ namespace :inst do
     puts 'Instruction database OK'
   end
 
-  desc 'Generate documentation for the instruction schema'
-  task :schema_doc do
-    s = JSON.parse(File.read("#{ROOT}/insts/inst_schema.json"))
-
-    t = ERB.new(<<~TEMPLATE, trim_mode: '-'
-      = <%= title %>
-
-      <%= description %>
-
-      == Properties
-
-      [cols="1,2,2"]
-      |===
-      | Name | Description | Attributes
-
-      <% items['properties'].each do |name, attr| %>
-      a| `<%= name %>`
-
-      | <%= attr['description'] %>
-
-      a|
-      [horizontal]
-      Type:: <%= attr['type'] %>
-      <%- if attr.key?('examples') -%>
-      Examples:: <%= attr['examples'].join(', ') %>
-      <%- end -%>
-      Required?:: <%= items['required_properties'].any?(key) %>
-
-      <% end %>
-    TEMPLATE
-    )
-
-    puts 'Writing documentation to insts/inst_schema.adoc'
-    File.write "#{ROOT}/insts/inst_schema.adoc", t.result(OpenStruct.new(s).instance_eval { binding })
-  end
-
   namespace :render do
+
+    desc 'Generate documentation for the instruction schema'
+    task :schema_doc do
+      s = JSON.parse(File.read("#{ROOT}/insts/inst_schema.json"))
+
+      t = ERB.new(<<~TEMPLATE, trim_mode: '-'
+        = <%= title %>
+
+        <%= description %>
+
+        == Properties
+
+        [cols="1,2,2"]
+        |===
+        | Name | Description | Attributes
+
+        <% items['properties'].each do |name, attr| %>
+        a| `<%= name %>`
+
+        | <%= attr['description'] %>
+
+        a|
+        [horizontal]
+        Type:: <%= attr['type'] %>
+        <%- if attr.key?('examples') -%>
+        Examples:: <%= attr['examples'].join(', ') %>
+        <%- end -%>
+        Required?:: <%= items['required_properties'].any?(key) %>
+
+        <% end %>
+      TEMPLATE
+      )
+
+      puts 'Writing documentation to insts/inst_schema.adoc'
+      File.write "#{ROOT}/insts/inst_schema.adoc", t.result(OpenStruct.new(s).instance_eval { binding })
+    end
+
     desc 'Generate Asciidoc table view of instruction database'
     task :adoc do
       insts = Dir.glob("#{ROOT}/insts/*.yaml").map { |f| YAML.load(File.read(f)) }.flatten
