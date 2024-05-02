@@ -1,0 +1,30 @@
+= Processor classes
+
+We define four target processor classes that together cover a wide range of devices and markets relevant to RISC-V. The first class, _Microcontroller_, represents processors typically found in deeply embedded applications. For our purposes, we consider Microcontrollers to be in-order designs with no virtual memory (MMU), and as such do not support a rich Operating System (_e.g._, Linux). Microcontrollers are typically optimized for area and are highly sensitive to the static code size of the workload they run. 
+
+The next three classes are all implementation variants of Application Processors. All three variants are expected to support the same profile (or at least the unprivileged scalar subset of a profile) and run a rich OS. The assumed implementation properties of the three classes are listed in the table below.
+
+.Application processor classes
+[%autowidth]
+|===
+|                             | Low (IoT)     | Mid (Mobile/Desktop)  | High (Server)
+
+h| SPEC CPU 2017 speed        | | |
+4+a| &#x03bc;Arch Properties
+h| Dynamic Instruction fusion | No | Yes | Yes
+4+| Execution Properties
+h| Dynamic execution          | In-order | Out-of-order | Out-of-order
+h| Frontend width             | 2-3      | 4-6          | 8-12
+h| Backend width              | 2-3      | 4-8          | 8-16
+// h| Pipeline depth             | 8        | 11           | 
+h| Max In-flight instructions | 2-3      |           | 768-1024
+4+| Branch Properties
+h| Branch prediction storage  | 4KB      |              |  2MB 
+h| Branch mispredict penlaty  | XX cycles | 11 cycles | XX cycles
+4+| Memory Properties
+h| L1 instruction cache       | 32KB     | 64KB         | 128KB
+h| L1 data cache              | 32KB     | 32KB         | 64KB
+h| L2 unified cache           | 256KB    | 512KB        | 2MB
+h| L1 TLB entries             | 16       |              |
+h| L2 TLB entries             | 2048     |              |
+|===
