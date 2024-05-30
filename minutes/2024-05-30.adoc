@@ -1,0 +1,31 @@
+= Minutes for May 30, 2024
+
+== Attendees
+
+ * Derek Hower (Qualcomm)
+ * Phillip Tomsich (VRULL)
+ * Greg Favor (Ventana)
+ * Allen Baum (Esperanto)
+ * James Ball (Qualcomm)
+ * Al Martin (Akeana)
+ * Ana Pazos (Qualcomm)
+ * Christian Herber (NXP)
+ * Ved Shanbhogue (Rivos)
+ * David Weaver (Akeana)
+ * Ken Dockser (Tenstorrent)
+
+== Artifacts
+
+ * https://github.com/riscv-admin/riscv-scalar-efficiency/blob/main/agendas/2024-05-30.pdf[slides]
+
+== Topics
+
+Toolchains/targets::
+
+ * Ana suggested -Oz flags for RTOS targets
+ * Phillip recommended that we highlight that LTO is being used
+ * Multiple suggestions to add Zicond to extensions for all targets
+ * Ana/Phillip suggested we enabled misaligned load/store for RTOS
+ * Christian suggested Z*inx added to RTOS/embedded
+ * Phillip suggests original Coremark for RTOS workload
+ * Christian suggested EEMBC (esp FPMark, Auto) for RTOS

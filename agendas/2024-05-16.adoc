@@ -1,0 +1,106 @@
+= Scalar Efficiency SIG Meeting: May 16, 2024
+Derek Hower, Qualcomm
+:title-page:
+:pdf-theme: slides-theme.yml
+:pdf-fontsdir: docs-resources/fonts
+:imagesdir: docs-resources/images
+:pdf-page-layout: landscape
+
+<<<
+== Agenda
+
+ * Infrastructure
+ ** Container
+ ** Toolchains & targets
+ ** Discuss processor types / metrics / workloads
+
+<<<
+== Analysis repository
+
+https://github.com/riscv-software-src/se-sig-analysis
+
+Contains::
+
+ * Scripts to create/push/pull container with toolchains
+ * Scripts to build workloads
+ * Scripts to estimate static code size effect of new instructions
+ * [TODO] QEMU to estimate dynamic instruction effect of new instructions
+
+Requirements::
+
+ * https://docs.sylabs.io/guides/4.1/user-guide/index.html[singularity] container system
+ * ~1 TB disk space (To build everything)
+
+<<<
+== Toolchains & targets
+
+.Toolchains/Targets
+|===
+| | Name | Toolchain | Version | Arch | Abi | Flags
+
+.4+.^h| RTOS
+| `rtos32_llvm` | LLVM | 18.1.6 | `rv32ima_zba_zbb_zbs_zca_zcb_zcmp_zcmt` | `ilp32` | `-Os`
+| `rtos32_gcc` | GCC | 14.1 | `rv32ima_zba_zbb_zbs_zca_zcb_zcmp_zcmt` | `ilp32` | `-Os`
+| `rtos64_llvm` | LLVM | 18.1.6 | `rv64ima_zba_zbb_zbs_zca_zcb_zcmp_zcmt` | `lp64` | `-Os`
+| `rtos64_gcc` | GCC | 14.1 | `rv64ima_zba_zbb_zbs_zca_zcb_zcmp_zcmt` | `lp64` | `-Os`
+
+.4+.^h| Embed Rich OS
+| `linux32_llvm` | LLVM | 18.1.6 | `rv32ima_zba_zbb_zbs_zca_zcb_zcmp` | `ilp32` | `-Os`
+| `linux32_gcc` | GCC | 14.1 | `rv32ima_zba_zbb_zbs_zca_zcb_zcmp` | `ilp32` | `-Os`
+| `linux64_llvm` | LLVM | 18.1.6 | `rv64ima_zba_zbb_zbs_zca_zcb_zcmp` | `lp64` | `-Os`
+| `linux64_gcc` | GCC | 14.1 | `rv32ima_zba_zbb_zbs_zca_zcb_zcmp` | `lp64` | `-Os`
+
+.3+.^h| App Rich OS
+| `linux64_app_llvm` | LLVM | 18.1.6 | `rv64gcv_zba_zbb_zbs_zcb` | `lp64d` | `-Ofast`
+| `linux64_app_gcc` | GCC | 14.1 | `rv64gcv_zba_zbb_zbs_zcb` | `lp64d` | `-Ofast`
+| `android64_llvm` | LLVM | 18.0.1 | `rv64gcv_zba_zbb_zbs_zcb` | `lp64d` | '-Ofast'
+|===
+
+
+<<<
+== Workloads
+
+|===
+| Class | Name | Version | Status
+
+.3+.^h| RTOS
+| Zephyr (examples TBD) | 3.6.0 | *Done*
+| Embench IoT | 1.0 | *Done*
+| Coremark | Pro | Not started
+
+.1+.^h| Embeded Rich OS
+| Yocto Poky | TODO | Not started
+
+.7+.^h| App Rich OS
+| SPEC CPU | 2017 | *Done*
+| AOSP (userspace) |  | *Done*
+| Linux Kernel | TODO | Not started
+| V8 | TODO | Not started
+| V8 (Sunspider) | TODO | Not started -- discussion needed
+| V8 (Octane) | TODO | Not started -- discussion needed
+| V8 (Speedometer) | TODO | Not started -- discussion needed
+
+|===
+
+<<<
+== Analysis
+
+ * Script that estimates code size savings by finding/replacing instruction sequences
+ * Completed:
+ ** `Zilsd
+ ** `XTheadMemPair
+ ** In progress: validate against compiler results from `XTheadMemPair`
+
+<<<
+== Instruction database format
+
+ * Presented Google Sheet format last month
+ * Text format suggested to manage concurrent work. See https://github.com/riscv-admin/riscv-scalar-efficiency/tree/main/insts[prototype]
+ ** Instruction data specified in YAML files.
+ ** Vendors can be separate.
+ ** Script aggregates into Asciidoc table.
+<<<
+
+== Processor classes
+
+ * https://github.com/riscv-admin/riscv-scalar-efficiency/blob/main/work%20product/processor_classes.adoc[See Draft]
