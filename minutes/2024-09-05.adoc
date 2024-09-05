@@ -1,0 +1,28 @@
+= Scalar Efficiency SIG 8/5/2024
+
+== Attendees
+
+ * Christian Herber (NXP)
+ * Derek Hower (Qualcomm)
+ * David Weaver (Akeana)
+ * Al Martin (Akeana)
+ * Mehul Shah (Rivos)
+ * Ana Pazos (Qualcomm)
+ * Punit Agrawal (Bytedance)
+ * Olaf Bernstein (Individual)
+ * Allen Baum (Esperanto)
+ * Ved Shanbhogue (Rivos)
+ * Greg Favor (Ventana)
+
+== Topics
+
+ * 48-bit instructions. Olaf suggested defining new 32-bit instructions in the 48-bit instruction opcode space.
+ ** Christian pointed out 48-bit space may not be as free as it seems, since it may get used with large immediate instructions
+ ** Derek observed that this would buy at most one extra major opcode int 32-bit space
+ * Allen suggested prefix instructions to extend immediate of following instruction
+ ** Requires extra CSR register that is saved/restored
+ ** May have implementations costs (adds implicit source and dest to following instruction)
+ *** ...unless you can gaurantee neither an exception or interrupt can happen between prefix
+ * Derek pointed out that Qualcomm has released a custom RISC-V microcontroller spec
+ ** Qualcomm will release LLVM implementation for instructions, which SE Sig can use.
+ * Punit will send out results from load/store pair performance on silicon.
