@@ -1,0 +1,22 @@
+= September 19, 2024
+
+== Attendees
+
+* Derek Hower (Qualcomm)
+* David Weaver (Akeana)
+* Ana Pazos (Qualcomm)
+* Allen Baum (Esperanto)
+* Christian Herber (NSP)
+* Punit Agrawal (Bytedance)
+* Ved S. (Rivos)
+* Al Martin (Akeana)
+* Olaf Bernstein (Individual)
+
+== Topics
+
+* Load/store pair. Bytedance provided data on improvements coming from load/store pair on ARM IP.
+
+== Action Items
+
+* Christian to ask OpenHW if there is data on load/store pair performance improvements from their custom instructions.
+* Derek to reach out to Tariq to see if there is data from the old code size group
