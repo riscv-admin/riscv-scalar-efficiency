@@ -1,0 +1,24 @@
+= Scalar Efficiency SIG Meeting (October 17, 2024)
+
+== Attendees
+
+ * Derek Hower (Qualcomm)
+ * Punit Agrawal (Bytedance)
+ * Greg Favor (Ventana)
+ * David Weaver (Akeana)
+ * Junjie Hou (Bytedance)
+ * Brendan Sweeney (Rivos/UT)
+ * Ved (Rivos)
+ * Al Martin (Akeana)
+ * Allen Baum (Esperanto)
+ * Christain Herber (NXP)
+ * Olad Bernstein (Individual)
+ * Rich Fuhler (Andes)
+ * Christoph Mullner (VRULL)
+
+== Topics
+
+ * Bytedance shared data comparing dynamic instruction count of RV64 vs. AArch64
+ ** Lot of questions on whether or not RV/AArch code removed all vector operations (Bytedance think so, but will verify)
+ ** Data seems conservativbe compared to prior analysis from Qualcomm
+ * Decided that we will start a TG for branch immediates.
